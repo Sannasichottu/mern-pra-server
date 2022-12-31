@@ -1,6 +1,7 @@
 const Users = require('../models/userModel');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const sendMail = require('./sendMail');
 
 const {CLIENT_URL} = process.env
 
@@ -39,7 +40,8 @@ const userCtrl = {
         }catch (err) {
             return res.status(500).json({msg: err.message})
         }
-    }
+    },
+
 }
 
 function validateEmail(email) {
