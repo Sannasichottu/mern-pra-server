@@ -116,7 +116,30 @@ const userCtrl = {
       return res.status(500).json({msg:err.message})
     }
   },
+  resetPassword: async (req, res) => {
+    try {
+        const {password} = req.body
+        console.log(password)
+        const passwordHash = await bcrypt.hash(password, 12)
 
+        await Users.findOneAndUpdate({_id: req.user.id}, {
+            password: passwordHash
+        })
+
+        res.json({msg: "Password successfully changed!"})
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+}
+
+/*resetPassword : async (req,res) => {
+  try {
+    const {password} = req.body
+    console.log(password)
+  } catch (err) {
+    return res.status(500).json({msg:err.message})
+  }
+} */
 
 }
 
