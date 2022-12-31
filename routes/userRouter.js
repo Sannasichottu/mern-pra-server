@@ -9,4 +9,6 @@ router.post('/login', userCtrl.login);
 
 router.post('/refresh_token', userCtrl.getAccessToken);
 
+router.post('/forgot', userCtrl.forgotPassword);
+
 module.exports = router;
