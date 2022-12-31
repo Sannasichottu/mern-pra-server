@@ -130,16 +130,17 @@ const userCtrl = {
     } catch (err) {
         return res.status(500).json({msg: err.message})
     }
-}
+  },
+  getUserInfor : async (req,res) => {
+    try {
+      const user = await Users.findById(req.user.id).select('-password')
 
-/*resetPassword : async (req,res) => {
-  try {
-    const {password} = req.body
-    console.log(password)
-  } catch (err) {
-    return res.status(500).json({msg:err.message})
+      res.json(user)
+    } catch (err) {
+      return res.status(500).json({msg: err.message})
+    }
   }
-} */
+
 
 }
 
