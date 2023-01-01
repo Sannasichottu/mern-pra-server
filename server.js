@@ -22,7 +22,11 @@ app.use('/api',require('./routes/upload'))
 /*
 app.use('/',(req,res,next) => {
     res.json({msg: "Hello Nanba!"})
-})*/
+})
+
+//https://mern-pra-server.onrender.com
+
+*/
 
 //connect to mongo
 const uri = process.env.DB_URI
